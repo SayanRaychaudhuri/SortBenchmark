@@ -1,25 +1,13 @@
-import java.util.Arrays;
+
 public class Sorting {
 
     public static void main(String[] args) {
-        int a[] = {2,5,9,0,12,4,8};
-        bubbleSort(a);
-        System.out.println(Arrays.toString(a));
-        int b[] = {2,5,9,0,12,4,8};
-        selectionSort(b);
-        System.out.println(Arrays.toString(b));
-        int c[] = {2,5,9,0,12,4,8};
-        insertionSort(c);
-        System.out.println(Arrays.toString(c));
-        int d[] = {2,5,9,0,12,4,8};
-        radixSort(d);
-        System.out.println(Arrays.toString(d));
-        int e[] = {2,5,9,0,12,4,8};
-        quickSort(e,0,6);
-        System.out.println(Arrays.toString(e));
-        int f[] = {2,5,9,0,12,4,8};
-        mergeSort(f,0,6);
-        System.out.println(Arrays.toString(f));
+        System.out.println(bubbleSortTime());
+        System.out.println(selectionSortTime());
+        System.out.println(insertionSortTime());
+        System.out.println(quickSortTime());
+        System.out.println(mergeSortTime());
+        System.out.println(radixSortTime());
     }
 
     public static void bubbleSort(int a[]) {
@@ -37,6 +25,13 @@ public class Sorting {
         } while (loop);
     }
 
+    public static long bubbleSortTime(){
+        int a[] = {2,5,9,0,12,4,8};
+        long startTime = System.nanoTime();
+        bubbleSort(a);
+        return System.nanoTime() - startTime;
+    }
+
     public static void selectionSort(int a[]) {
         int min, minIndex;
         for (int i = 0; i < a.length; ++i) {
@@ -51,6 +46,13 @@ public class Sorting {
             a[minIndex] = a[i];
             a[i] = min;
         }
+    }
+
+    public static long selectionSortTime(){
+        int a[] = {2,5,9,0,12,4,8};
+        long startTime = System.nanoTime();
+        selectionSort(a);
+        return System.nanoTime() - startTime;
     }
 
     public static void insertionSort(int a[]) {
@@ -72,6 +74,13 @@ public class Sorting {
                 }
             }
         }
+    }
+
+    public static long insertionSortTime(){
+        int a[] = {2,5,9,0,12,4,8};
+        long startTime = System.nanoTime();
+        insertionSort(a);
+        return System.nanoTime() - startTime;
     }
 
     public static void quickSort(int a[ ], int left, int right)
@@ -99,6 +108,13 @@ public class Sorting {
         quickSort(a, k, right);
     }
 
+    public static long quickSortTime(){
+        int a[] = {2,5,9,0,12,4,8};
+        long startTime = System.nanoTime();
+        quickSort(a, 0 ,6);
+        return System.nanoTime() - startTime;
+    }
+
     public static void mergeSort(int a[ ], int left, int right)
     {
         if (right == left) return;
@@ -106,6 +122,13 @@ public class Sorting {
         mergeSort(a, left, middle); //salient feature #2 (recursion)
         mergeSort(a, middle + 1, right); //salient feature #3
         merge(a, left, middle, right); //salient feature #4
+    }
+
+    public static long mergeSortTime(){
+        int a[] = {2,5,9,0,12,4,8};
+        long startTime = System.nanoTime();
+        mergeSort(a, 0 ,6);
+        return System.nanoTime() - startTime;
     }
 
     private static void merge(int[] a, int left, int middle, int right) {
@@ -159,5 +182,12 @@ public class Sorting {
                 a[indx++] = ones[j];
             mask *= 2;
         }
+    }
+
+    public static long radixSortTime(){
+        int a[] = {2,5,9,0,12,4,8};
+        long startTime = System.nanoTime();
+        radixSort(a);
+        return System.nanoTime() - startTime;
     }
 }
