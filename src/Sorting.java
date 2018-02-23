@@ -1,18 +1,21 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Sorting {
     private Random rand = new Random();
-    private int elements = 50000, numAverages = 10;
+    private int elements = 50000, numAverages = 10, numPoints = 2;
     private int[] assorted = new int[elements];
+    ArrayList<Integer> points = new ArrayList<>();
 
     public Sorting (){
         for (int i = 0; i < assorted.length; i++)
             assorted[i] = rand.nextInt();
     }
 
-    public Sorting (int elements, int numAverages){
+    public Sorting (int elements, int numAverages, int numPoints){
         this.elements = elements;
         this.numAverages = numAverages;
+        this.numPoints = numPoints;
 
         for (int i = 0; i < assorted.length; i++)
             assorted[i] = rand.nextInt();
@@ -196,4 +199,20 @@ public class Sorting {
             radixSort(assorted);
         return (System.nanoTime() - startTime)/numAverages;
     }
+
+    public int[] addPoints(){
+        int[] coordinates = new int[numPoints*6];
+        for (int i=0;i<numPoints;i++){
+            points.add((int) selectionSortAvgTime());
+            points.add((int) insertionSortAvgTime());
+            points.add((int) mergeSortAvgTime());
+            points.add((int) bubbleSortAvgTime());
+            points.add((int) quickSortAvgTime());
+            points.add((int) radixSortAvgTime());
+        }
+        for (int i=0;i<numPoints*6;i++)
+            coordinates[i] = points.get(i);
+        return coordinates;
+    }
+    
 }
