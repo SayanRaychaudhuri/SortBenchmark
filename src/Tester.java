@@ -9,7 +9,7 @@ public class Tester {
                                                     , sorting.quickSortAvgTime(), sorting.radixSortAvgTime());
         JFrame f = new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.add(new GraphingData());
+        //f.add(new GraphingData());
         f.setSize(400,400);
         f.setLocation(200,200);
         f.setVisible(true);
