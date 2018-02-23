@@ -1,5 +1,22 @@
+import java.util.Random;
 
 public class Sorting {
+    private Random rand = new Random();
+    private int elements = 50000, numAverages = 10;
+    private int[] assorted = new int[elements];
+
+    public Sorting (){
+        for (int i = 0; i < assorted.length; i++)
+            assorted[i] = rand.nextInt();
+    }
+
+    public Sorting (int elements, int numAverages){
+        this.elements = elements;
+        this.numAverages = numAverages;
+
+        for (int i = 0; i < assorted.length; i++)
+            assorted[i] = rand.nextInt();
+    }
 
     public void bubbleSort(int a[]) {
         boolean loop;
@@ -17,11 +34,10 @@ public class Sorting {
     }
 
     public long bubbleSortAvgTime(){
-        int a[] = {2,5,9,0,12,4,8,11,3,14,15,20,47,23,90,132,35,1,19};
         long startTime = System.nanoTime();
-        for (int i=0;i<100;i++)
-        bubbleSort(a);
-        return (System.nanoTime() - startTime)/100;
+        for (int i=0;i<numAverages;i++)
+        bubbleSort(assorted);
+        return (System.nanoTime() - startTime)/numAverages;
     }
 
     public void selectionSort(int a[]) {
@@ -41,11 +57,10 @@ public class Sorting {
     }
 
     public long selectionSortAvgTime(){
-        int a[] = {2,5,9,0,12,4,8,11,3,14,15,20,47,23,90,132,35,1,19};
         long startTime = System.nanoTime();
-        for (int i=0;i<100;i++)
-        selectionSort(a);
-        return (System.nanoTime() - startTime)/100;
+        for (int i=0;i<numAverages;i++)
+        selectionSort(assorted);
+        return (System.nanoTime() - startTime)/numAverages;
     }
 
     public void insertionSort(int a[]) {
@@ -70,11 +85,10 @@ public class Sorting {
     }
 
     public long insertionSortAvgTime(){
-        int a[] = {2,5,9,0,12,4,8,11,3,14,15,20,47,23,90,132,35,1,19};
         long startTime = System.nanoTime();
-        for (int i=0;i<100;i++)
-        insertionSort(a);
-        return (System.nanoTime() - startTime)/100;
+        for (int i=0;i<numAverages;i++)
+        insertionSort(assorted);
+        return (System.nanoTime() - startTime)/numAverages;
     }
 
     public void quickSort(int a[ ], int left, int right) {
@@ -102,11 +116,10 @@ public class Sorting {
     }
 
     public long quickSortAvgTime(){
-        int a[] = {2,5,9,0,12,4,8,11,3,14,15,20,47,23,90,132,35,1,19};
         long startTime = System.nanoTime();
-        for (int i=0;i<100;i++)
-        quickSort(a, 0 ,18);
-        return (System.nanoTime() - startTime)/100;
+        for (int i=0;i<numAverages;i++)
+        quickSort(assorted, 0 ,elements-1);
+        return (System.nanoTime() - startTime)/numAverages;
     }
 
     public void mergeSort(int a[ ], int left, int right) {
@@ -118,11 +131,10 @@ public class Sorting {
     }
 
     public long mergeSortAvgTime(){
-        int a[] = {2,5,9,0,12,4,8,11,3,14,15,20,47,23,90,132,35,1,19};
         long startTime = System.nanoTime();
-        for (int i=0;i<100;i++)
-        mergeSort(a, 0 ,18);
-        return (System.nanoTime() - startTime)/100;
+        for (int i=0;i<numAverages;i++)
+        mergeSort(assorted, 0 ,elements-1);
+        return (System.nanoTime() - startTime)/numAverages;
     }
 
     private void merge(int[] a, int left, int middle, int right) {
@@ -179,10 +191,9 @@ public class Sorting {
     }
 
     public long radixSortAvgTime(){
-        int a[] = {2,5,9,0,12,4,8,11,3,14,15,20,47,23,90,132,35,1,19};
         long startTime = System.nanoTime();
-        for (int i=0;i<100;i++)
-            radixSort(a);
-        return (System.nanoTime() - startTime)/100;
+        for (int i=0;i<numAverages;i++)
+            radixSort(assorted);
+        return (System.nanoTime() - startTime)/numAverages;
     }
 }
