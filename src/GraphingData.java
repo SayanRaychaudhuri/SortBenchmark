@@ -1,3 +1,4 @@
+// GraphingData class (current commit) is from https://www.java-forums.org/new-java/7995-how-plot-graph-java-given-samples.html
 import java.awt.*;
 import java.awt.geom.*;
 import javax.swing.*;
