@@ -3,10 +3,20 @@ import java.util.Random;
 
 public class SortBenchmark {
     private Random rand = new Random();
-    private int elements = 50000, numAverages = 10, numPoints = 20;
+    private int elements = 50000, numAverages = 10, numPoints = 5;
     private int[] assorted = new int[elements];
     public ArrayList<Integer> points = new ArrayList<>();
-    
+    private Sort sort;
+
+    public enum Sort {
+        SELECTION,
+        INSERTION,
+        MERGE,
+        BUBBLE,
+        QUICK,
+        RADIX
+    }
+
     public SortBenchmark(){
         for (int i = 0; i < assorted.length; i++)
             assorted[i] = rand.nextInt();
@@ -200,14 +210,28 @@ public class SortBenchmark {
         return (System.nanoTime() - startTime)/numAverages;
     }
 
-    public void addPoints(){
+    public void addPoints(Sort sort){
         for (int i=0;i<numPoints;i++){
-            points.add((int) selectionSortAvgTime());
-            points.add((int) insertionSortAvgTime());
-            points.add((int) mergeSortAvgTime());
-            points.add((int) bubbleSortAvgTime());
-            points.add((int) quickSortAvgTime());
-            points.add((int) radixSortAvgTime());
+            switch (sort){
+                case SELECTION:
+                    points.add((int) selectionSortAvgTime());
+                    break;
+                case INSERTION:
+                    points.add((int) insertionSortAvgTime());
+                    break;
+                case MERGE:
+                    points.add((int) mergeSortAvgTime());
+                    break;
+                case BUBBLE:
+                    points.add((int) bubbleSortAvgTime());
+                    break;
+                case QUICK:
+                    points.add((int) quickSortAvgTime());
+                    break;
+                case RADIX:
+                    points.add((int) radixSortAvgTime());
+                    break;
+            }
         }
     }
     
