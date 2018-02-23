@@ -2,11 +2,9 @@
 public class Tester {
     static Sorting sorting = new Sorting();
     public static void main(String[] args) {
-        System.out.println(sorting.selectionSortAvgTime());
-        System.out.println(sorting.insertionSortAvgTime());
-        System.out.println(sorting.mergeSortAvgTime());
-        System.out.println(sorting.bubbleSortAvgTime());
-        System.out.println(sorting.quickSortAvgTime());
-        System.out.println(sorting.radixSortAvgTime());
+        System.out.printf("%s%15s%15s%15s%15s%15s\n", "selection", "insertion", "merge", "bubble", "quick", "radix");
+        System.out.printf("%d%15d%15d%15d%15d%15d", sorting.selectionSortAvgTime(), sorting.insertionSortAvgTime()
+                                                    , sorting.mergeSortAvgTime(), sorting.bubbleSortAvgTime()
+                                                    , sorting.quickSortAvgTime(), sorting.radixSortAvgTime());
     }
 }
