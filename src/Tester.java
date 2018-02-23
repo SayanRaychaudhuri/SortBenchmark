@@ -1,3 +1,4 @@
+import javax.swing.*;
 
 public class Tester {
     static Sorting sorting = new Sorting();
@@ -6,6 +7,11 @@ public class Tester {
         System.out.printf("%d%15d%15d%15d%15d%15d\n", sorting.selectionSortAvgTime(), sorting.insertionSortAvgTime()
                                                     , sorting.mergeSortAvgTime(), sorting.bubbleSortAvgTime()
                                                     , sorting.quickSortAvgTime(), sorting.radixSortAvgTime());
-        main(null);
+        JFrame f = new JFrame();
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.add(new GraphingData());
+        f.setSize(400,400);
+        f.setLocation(200,200);
+        f.setVisible(true);
     }
 }
