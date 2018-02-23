@@ -1,16 +1,7 @@
 
 public class Sorting {
 
-    public static void main(String[] args) {
-        System.out.println(bubbleSortAvgTime());
-        System.out.println(selectionSortAvgTime());
-        System.out.println(insertionSortAvgTime());
-        System.out.println(quickSortAvgTime());
-        System.out.println(mergeSortAvgTime());
-        System.out.println(radixSortAvgTime());
-    }
-
-    public static void bubbleSort(int a[]) {
+    public void bubbleSort(int a[]) {
         boolean loop;
         do {
             loop = false;
@@ -25,7 +16,7 @@ public class Sorting {
         } while (loop);
     }
 
-    public static long bubbleSortAvgTime(){
+    public long bubbleSortAvgTime(){
         int a[] = {2,5,9,0,12,4,8,11,3,14,15,20,47,23,90,132,35,1,19};
         long startTime = System.nanoTime();
         for (int i=0;i<100;i++)
@@ -33,7 +24,7 @@ public class Sorting {
         return (System.nanoTime() - startTime)/100;
     }
 
-    public static void selectionSort(int a[]) {
+    public void selectionSort(int a[]) {
         int min, minIndex;
         for (int i = 0; i < a.length; ++i) {
             min = a[i];
@@ -49,7 +40,7 @@ public class Sorting {
         }
     }
 
-    public static long selectionSortAvgTime(){
+    public long selectionSortAvgTime(){
         int a[] = {2,5,9,0,12,4,8,11,3,14,15,20,47,23,90,132,35,1,19};
         long startTime = System.nanoTime();
         for (int i=0;i<100;i++)
@@ -57,7 +48,7 @@ public class Sorting {
         return (System.nanoTime() - startTime)/100;
     }
 
-    public static void insertionSort(int a[]) {
+    public void insertionSort(int a[]) {
         int itemToInsert, j;
         boolean loop;
         for (int k = 1; k < a.length; k++) {
@@ -78,7 +69,7 @@ public class Sorting {
         }
     }
 
-    public static long insertionSortAvgTime(){
+    public long insertionSortAvgTime(){
         int a[] = {2,5,9,0,12,4,8,11,3,14,15,20,47,23,90,132,35,1,19};
         long startTime = System.nanoTime();
         for (int i=0;i<100;i++)
@@ -86,7 +77,7 @@ public class Sorting {
         return (System.nanoTime() - startTime)/100;
     }
 
-    public static void quickSort(int a[ ], int left, int right) {
+    public void quickSort(int a[ ], int left, int right) {
         if (left >= right) return;
         int k = left;
         int j = right;
@@ -110,7 +101,7 @@ public class Sorting {
         quickSort(a, k, right);
     }
 
-    public static long quickSortAvgTime(){
+    public long quickSortAvgTime(){
         int a[] = {2,5,9,0,12,4,8,11,3,14,15,20,47,23,90,132,35,1,19};
         long startTime = System.nanoTime();
         for (int i=0;i<100;i++)
@@ -118,7 +109,7 @@ public class Sorting {
         return (System.nanoTime() - startTime)/100;
     }
 
-    public static void mergeSort(int a[ ], int left, int right) {
+    public void mergeSort(int a[ ], int left, int right) {
         if (right == left) return;
         int middle = (left + right) /2; //salient feature #1
         mergeSort(a, left, middle); //salient feature #2 (recursion)
@@ -126,7 +117,7 @@ public class Sorting {
         merge(a, left, middle, right); //salient feature #4
     }
 
-    public static long mergeSortAvgTime(){
+    public long mergeSortAvgTime(){
         int a[] = {2,5,9,0,12,4,8,11,3,14,15,20,47,23,90,132,35,1,19};
         long startTime = System.nanoTime();
         for (int i=0;i<100;i++)
@@ -134,7 +125,7 @@ public class Sorting {
         return (System.nanoTime() - startTime)/100;
     }
 
-    private static void merge(int[] a, int left, int middle, int right) {
+    private void merge(int[] a, int left, int middle, int right) {
         int tmpArray[ ] = new int[right - left +1];
         int index1 = left;
         int index2 = middle + 1;
@@ -165,7 +156,7 @@ public class Sorting {
         }
     }
 
-    public static void radixSort(int a[]) {
+    public void radixSort(int a[]) {
         int zeros[] = new int[a.length];
         int ones[] = new int[a.length];
         int mask = 1;
@@ -187,7 +178,7 @@ public class Sorting {
         }
     }
 
-    public static long radixSortAvgTime(){
+    public long radixSortAvgTime(){
         int a[] = {2,5,9,0,12,4,8,11,3,14,15,20,47,23,90,132,35,1,19};
         long startTime = System.nanoTime();
         for (int i=0;i<100;i++)
